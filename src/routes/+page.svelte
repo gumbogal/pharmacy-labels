@@ -4,7 +4,7 @@
   let dosage = $state("");
   let instructions = "";
   let oral = $state(false);
-  let pillCount = 28;
+  let pillCount = $state();
 </script>
 
 <div class="container">
@@ -19,6 +19,17 @@
         <option value={true}>Yes</option>
       </select>
     </label>
+
+        {#if oral}
+        <label>
+            Pill Count
+            <select bind:value={pillCount}>
+                <option value={7}>1 Week</option>
+                <option value={14}>Fortnightly</option>
+                <option value={28}>Monthly (28 days)</option>
+            </select>
+        </label>
+        {/if}
 
     <label>
       Patient Name
