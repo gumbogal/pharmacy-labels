@@ -1,5 +1,6 @@
 <script>
   import dataset from '../dataset.json';
+  import './+page.css';
 
   let selectedCategory = $state('masculinising');
   let selectedMedicationIndex = $state(0);
