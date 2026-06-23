@@ -1,182 +1,219 @@
 <script>
-  let patientName = "";
-  let medication = $state("");
-  let dosage = $state("");
-  let instructions = "";
-  let oral = $state(false);
-  let pillCount = $state();
+  import dataset from '../dataset.json';
+
+  let selectedCategory = $state('masculinising');
+  let selectedMedicationIndex = $state(0);
+
+  let medications = $derived(
+    ({ masculinising: dataset.templates.masculinising, feminising: dataset.templates.feminising })[
+      selectedCategory
+    ] ?? []
+  );
+  let selectedMedication = $derived(
+    medications[selectedMedicationIndex] ?? medications[0] ?? null
+  );
+
+  /**
+   * @param {'masculinising' | 'feminising'} category
+   */
+  function chooseCategory(category) {
+    selectedCategory = category;
+    selectedMedicationIndex = 0;
+  }
 </script>
 
-<div class="container">
-  <!-- FORM -->
-  <div class="form">
-    <h1>Pharmacy Label Generator</h1>
+<div class="page">
+  <section class="panel">
+    <h1>Gender-affirming hormone label preview</h1>
+    <p>Select a pathway to see example medications and a generated preview.</p>
 
-    <label>
-      Is the medication orally administered?
-      <select bind:value={oral}>
-        <option value={false}>No</option>
-        <option value={true}>Yes</option>
-      </select>
-    </label>
-
-        {#if oral}
-        <label>
-            Pill Count
-            <select bind:value={pillCount}>
-                <option value={7}>1 Week</option>
-                <option value={14}>Fortnightly</option>
-                <option value={28}>Monthly (28 days)</option>
-            </select>
-        </label>
-        {/if}
-
-    <label>
-      Patient Name
-      <input bind:value={patientName} placeholder="e.g. Bob Cobb" />
-    </label>
-
-    <label>
-      Medication
-      <input bind:value={medication} placeholder="e.g. Progesterone" />
-    </label>
-
-    <label>
-      Dosage
-      <input bind:value={dosage} placeholder="e.g. 100mg" />
-    </label>
-
-    <label>
-      Instructions
-      <textarea
-        bind:value={instructions}
-        placeholder="e.g. TWO to be taken TWICE a day"
-      ></textarea>
-    </label>
-
-    <button onclick={() => window.print()}>
-      Print Label
-    </button>
-  </div>
-
-  <!-- PREVIEW -->
-  <div class="preview">
-    <h2>Live Preview</h2>
-
-    <div class="label">
-      <div class="label-header">
-        {#if oral}
-          <span class="pill-count">{pillCount}</span> {medication.toUpperCase()} {dosage.toUpperCase()} CAPSULES
-        {:else}
-          LIQUID
-        {/if}
-      </div>
-
-      <div class="dosing-instructions">
-        {#if oral}
-          ONE to be taken TWICE a day
-        {:else}
-          NOT FOR ORAL USE
-        {/if}
-      </div>
-
-      <div class="label-body">
-        <p><strong>Name:</strong> {patientName}</p>
-        <p><strong>Medication:</strong> {medication}</p>
-        <p><strong>Dosage:</strong> {dosage}</p>
-        <p><strong>Instructions:</strong></p>
-        <p class="instructions">{instructions}</p>
-      </div>
+    <div class="choices" role="group" aria-label="Treatment pathway">
+      <button
+        class:active={selectedCategory === 'masculinising'}
+        onclick={() => chooseCategory('masculinising')}
+      >
+        Masculinising
+      </button>
+      <button
+        class:active={selectedCategory === 'feminising'}
+        onclick={() => chooseCategory('feminising')}
+      >
+        Feminising
+      </button>
     </div>
-  </div>
+
+    <div class="medications">
+      {#each medications as medication, index}
+        <button
+          class="medication-card"
+          class:active={index === selectedMedicationIndex}
+          onclick={() => (selectedMedicationIndex = index)}
+        >
+          <strong>{medication.medicine.name}</strong>
+          <span>{medication.medicine.route}</span>
+        </button>
+      {/each}
+    </div>
+  </section>
+
+  <section class="panel preview-panel">
+    {#if selectedMedication}
+      <div class="preview-card">
+        <p class="eyebrow">{selectedCategory}</p>
+        <h2>{selectedMedication.medicine.name}</h2>
+        <p class="subtitle">{selectedMedication.medicine.form}</p>
+
+        <div class="detail-grid">
+          <div>
+            <strong>Patient</strong>
+            <p>{selectedMedication.label.patient_name}</p>
+          </div>
+          <div>
+            <strong>Route</strong>
+            <p>{selectedMedication.label.route}</p>
+          </div>
+          <div>
+            <strong>Dose</strong>
+            <p>{selectedMedication.label.dose || 'As directed'}</p>
+          </div>
+          <div>
+            <strong>Frequency</strong>
+            <p>{selectedMedication.label.frequency || 'As directed'}</p>
+          </div>
+        </div>
+
+        <div class="label-box">
+          <p><strong>Medicine:</strong> {selectedMedication.label.medicine_name}</p>
+          <p><strong>Quantity:</strong> {selectedMedication.label.quantity || 'As prescribed'}</p>
+          <p><strong>Directions:</strong> {selectedMedication.label.directions}</p>
+          <p><strong>Duration:</strong> {selectedMedication.label.duration || 'As prescribed'}</p>
+        </div>
+      </div>
+    {:else}
+      <p>No medications available for this selection.</p>
+    {/if}
+  </section>
 </div>
 
 <style>
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 2rem;
+  :global(body) {
+    margin: 0;
+    background: #f4f6fb;
     font-family: system-ui, sans-serif;
   }
 
-  .form {
-    background: #f7f7f7;
-    padding: 1rem;
-    border-radius: 8px;
+  .page {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+    padding: 2rem;
+    min-height: 100vh;
+    box-sizing: border-box;
   }
 
-  label {
-    display: block;
-    margin-bottom: 1rem;
-    font-weight: 600;
+  .panel {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   }
 
-  input, textarea {
-    width: 100%;
-    margin-top: 0.25rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  .choices {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1rem 0;
   }
 
   button {
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    background: black;
-    color: white;
-    border: none;
+    border: 1px solid #d2d8e3;
+    background: #f8fafc;
+    color: #162033;
+    border-radius: 999px;
+    padding: 0.7rem 1rem;
     cursor: pointer;
+    font: inherit;
   }
 
-  /* 🏷️ LABEL PREVIEW */
-  .preview {
+  button.active {
+    background: #162033;
+    color: white;
+    border-color: #162033;
+  }
+
+  .medications {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .medication-card {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    width: 100%;
   }
 
-  .label {
-    width: 80mm;
-    min-height: 50mm;
-    border: 1px solid #000;
-    padding: 6mm;
-    background: white;
-    font-size: 12px;
+  .medication-card span {
+    font-size: 0.9rem;
+    color: #5b6474;
+    text-transform: capitalize;
   }
 
-  .pill-count {
-    font-weight: normal;
+  .preview-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .label-header, .dosing-instructions {
-    font-weight: bold;
-    text-align: center;
-    margin: 0mm;
-    padding: 0mm;
+  .preview-card {
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #ffffff, #f8fbff);
   }
 
-  .instructions {
-    margin-top: 2mm;
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: #5b6474;
+    margin: 0 0 0.35rem;
   }
 
-  /* 🖨️ PRINT RULES */
-  @media print {
-    .form,
-    h1,
-    h2 {
-      display: none;
-    }
+  .subtitle {
+    margin-top: 0;
+    color: #5b6474;
+  }
 
-    .container {
-      display: block;
-      padding: 0;
-    }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
 
-    .label {
-      border: none;
-      width: 100%;
-      font-size: 14pt;
+  .detail-grid p {
+    margin: 0.25rem 0 0;
+  }
+
+  .label-box {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+
+  .label-box p {
+    margin: 0.35rem 0;
+  }
+
+  @media (max-width: 900px) {
+    .page {
+      grid-template-columns: 1fr;
     }
   }
 </style>

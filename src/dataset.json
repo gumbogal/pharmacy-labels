@@ -1,0 +1,203 @@
+{
+  "category": "gender_affirming_hrt",
+  "data_type": "synthetic_test_data_expanded_clean",
+  "templates": {
+    "masculinising": [
+      {
+        "medicine": {
+          "name": "Testosterone gel",
+          "active_ingredient": "testosterone",
+          "form": "transdermal gel",
+          "presentation": "metered-dose pump pack",
+          "route": "transdermal",
+          "concentration": 16.2,
+          "concentration_unit": "mg/g",
+          "indication": "gender affirming hormone therapy"
+        },
+        "label": {
+          "patient_name": "Bob Cobb",
+          "medicine_name": "Testosterone gel",
+          "quantity": "1 x 88 g pump pack",
+          "dose": "1 application",
+          "frequency": "once daily",
+          "route": "transdermal",
+          "directions": "Apply to clean, dry skin as directed",
+          "duration": "28 days supply",
+          "repeat": "",
+          "cautionary_labels": [
+            "For external use only",
+            "Wash hands after application",
+            "Avoid skin contact with others until dry"
+          ],
+          "storage_instructions": "Store below 25°C",
+          "additional_instructions": "Apply to shoulders or upper arms unless advised otherwise",
+          "prescriber": ""
+        }
+      },
+      {
+        "medicine": {
+          "name": "Testosterone injection (undecanoate)",
+          "active_ingredient": "testosterone undecanoate",
+          "form": "solution for injection",
+          "presentation": "vial",
+          "route": "intramuscular injection",
+          "concentration": 250,
+          "concentration_unit": "mg/mL",
+          "indication": "gender affirming hormone therapy"
+        },
+        "label": {
+          "patient_name": "Bob Cobb",
+          "medicine_name": "Testosterone injection",
+          "quantity": "1 x 4 mL vial",
+          "dose": "",
+          "frequency": "",
+          "route": "intramuscular injection",
+          "directions": "For administration by healthcare professional only",
+          "duration": "",
+          "repeat": "",
+          "cautionary_labels": ["For injection use only"],
+          "storage_instructions": "Store below 25°C. Protect from light.",
+          "additional_instructions": "",
+          "prescriber": ""
+        }
+      }
+    ],
+    "feminising": [
+      {
+        "medicine": {
+          "name": "Estradiol tablets",
+          "active_ingredient": "estradiol valerate",
+          "form": "oral tablet",
+          "presentation": "blister pack",
+          "route": "oral",
+          "concentration": 2,
+          "concentration_unit": "mg",
+          "indication": "gender affirming hormone therapy"
+        },
+        "label": {
+          "patient_name": "Sally Snail",
+          "medicine_name": "Estradiol tablets",
+          "quantity": "84 tablets",
+          "dose": "1 tablet",
+          "frequency": "twice daily",
+          "route": "oral",
+          "directions": "Swallow whole with water",
+          "duration": "28 days supply",
+          "repeat": "",
+          "cautionary_labels": [],
+          "storage_instructions": "Store below 25°C",
+          "additional_instructions": "",
+          "prescriber": ""
+        }
+      },
+      {
+        "medicine": {
+          "name": "Estradiol gel",
+          "active_ingredient": "estradiol hemihydrate",
+          "form": "transdermal gel",
+          "presentation": "pump pack",
+          "route": "transdermal",
+          "concentration": 0.6,
+          "concentration_unit": "mg/g",
+          "indication": "gender affirming hormone therapy"
+        },
+        "label": {
+          "patient_name": "Sally Snail",
+          "medicine_name": "Estradiol gel",
+          "quantity": "1 pump pack",
+          "dose": "1 pump",
+          "frequency": "once daily",
+          "route": "transdermal",
+          "directions": "Apply to clean, dry skin",
+          "duration": "",
+          "repeat": "",
+          "cautionary_labels": ["For external use only"],
+          "storage_instructions": "Store below 25°C",
+          "additional_instructions": "Allow to dry before dressing",
+          "prescriber": ""
+        }
+      },
+      {
+        "medicine": {
+          "name": "Estradiol patch",
+          "active_ingredient": "estradiol",
+          "form": "transdermal patch",
+          "presentation": "patch pack",
+          "route": "transdermal",
+          "concentration": 100,
+          "concentration_unit": "micrograms/24 hours",
+          "indication": "gender affirming hormone therapy"
+        },
+        "label": {
+          "patient_name": "Sally Snail",
+          "medicine_name": "Estradiol patch",
+          "quantity": "8 patches",
+          "dose": "1 patch",
+          "frequency": "change twice weekly",
+          "route": "transdermal",
+          "directions": "Apply to clean, dry, hairless skin",
+          "duration": "28 days supply",
+          "repeat": "",
+          "cautionary_labels": ["Do not cut patch"],
+          "storage_instructions": "Store below 25°C",
+          "additional_instructions": "Rotate application site",
+          "prescriber": ""
+        }
+      },
+      {
+        "medicine": {
+          "name": "Spironolactone",
+          "active_ingredient": "spironolactone",
+          "form": "oral tablet",
+          "presentation": "blister pack",
+          "route": "oral",
+          "concentration": 50,
+          "concentration_unit": "mg",
+          "indication": "gender affirming hormone therapy"
+        },
+        "label": {
+          "patient_name": "Sally Snail",
+          "medicine_name": "Spironolactone",
+          "quantity": "",
+          "dose": "",
+          "frequency": "",
+          "route": "oral",
+          "directions": "Take as directed with food",
+          "duration": "",
+          "repeat": "",
+          "cautionary_labels": ["May cause dizziness"],
+          "storage_instructions": "Store below 25°C",
+          "additional_instructions": "",
+          "prescriber": ""
+        }
+      },
+      {
+        "medicine": {
+          "name": "Cyproterone acetate",
+          "active_ingredient": "cyproterone acetate",
+          "form": "oral tablet",
+          "presentation": "blister pack",
+          "route": "oral",
+          "concentration": 10,
+          "concentration_unit": "mg",
+          "indication": "gender affirming hormone therapy"
+        },
+        "label": {
+          "patient_name": "Sally Snail",
+          "medicine_name": "Cyproterone acetate",
+          "quantity": "",
+          "dose": "",
+          "frequency": "",
+          "route": "oral",
+          "directions": "Take as directed",
+          "duration": "",
+          "repeat": "",
+          "cautionary_labels": ["May cause drowsiness"],
+          "storage_instructions": "Store below 25°C",
+          "additional_instructions": "",
+          "prescriber": ""
+        }
+      }
+    ]
+  }
+}

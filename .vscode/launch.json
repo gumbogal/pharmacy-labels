@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "SvelteKit: dev server",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev -- --open",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch Chrome against dev server",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://127.0.0.1:5173",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "SvelteKit: full stack",
+      "configurations": [
+        "SvelteKit: dev server",
+        "Launch Chrome against dev server"
+      ]
+    }
+  ]
+}
