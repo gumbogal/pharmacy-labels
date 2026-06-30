@@ -98,6 +98,9 @@
           <div>
             <p>Read the printed advice.</p>
           </div>
+          <div>
+            <p>{selectedMedication.label.advice}</p>
+          </div>
         <div class="detail-grid">
           <div>
             <strong>Patient</strong>
@@ -111,14 +114,6 @@
             <strong>Dose</strong>
             <p>{selectedMedication.label.dose || 'As directed'}</p>
           </div>
-
-        </div>
-
-        <div class="label-box">
-          <p><strong>Medicine:</strong> {selectedMedication.label.medicine_name}</p>
-          <p><strong>Quantity:</strong> {selectedMedication.label.quantity || 'As prescribed'}</p>
-          <p><strong>Directions:</strong> {selectedMedication.label.directions}</p>
-          <p><strong>Duration:</strong> {selectedMedication.label.duration || 'As prescribed'}</p>
         </div>
       </div>
     {:else}
