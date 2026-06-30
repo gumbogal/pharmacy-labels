@@ -5,16 +5,15 @@
       "name": "SvelteKit: dev server",
       "type": "node-terminal",
       "request": "launch",
-      "command": "npm run dev -- --open",
+      "command": "npm run dev -- --host 127.0.0.1",
       "cwd": "${workspaceFolder}"
     },
     {
-      "name": "Launch Chrome against dev server",
-      "type": "chrome",
+      "name": "Launch Orion against dev server",
+      "type": "node-terminal",
       "request": "launch",
-      "url": "http://127.0.0.1:5173",
-      "webRoot": "${workspaceFolder}",
-      "sourceMaps": true
+      "command": "open -a \"Orion\" http://127.0.0.1:5173",
+      "cwd": "${workspaceFolder}"
     }
   ],
   "compounds": [
@@ -22,7 +21,7 @@
       "name": "SvelteKit: full stack",
       "configurations": [
         "SvelteKit: dev server",
-        "Launch Chrome against dev server"
+        "Launch Orion against dev server"
       ]
     }
   ]
