@@ -60,10 +60,13 @@
   <section class="panel preview-panel">
     {#if selectedMedication}
       <div class="preview-card">
-        <p class="eyebrow">{selectedCategory}</p>
-        <h2>{selectedMedication.medicine.name}</h2>
-        <p class="subtitle">{selectedMedication.medicine.form}</p>
-
+        <p class="to-uppercase">
+          {selectedMedication.label.quantity}
+          {selectedMedication.medicine.trade_name || selectedMedication.medicine.name} 
+          {selectedMedication.medicine.concentration} 
+          {selectedMedication.medicine.concentration_unit} 
+          {selectedMedication.medicine.form}{#if selectedMedication.label.quantity > 1}s{/if}
+        </p>
         <div class="detail-grid">
           <div>
             <strong>Patient</strong>

@@ -6,6 +6,7 @@
       {
         "medicine": {
           "name": "Testosterone gel",
+          "trade_name": "AndroGel",
           "active_ingredient": "testosterone",
           "form": "transdermal gel",
           "presentation": "metered-dose pump pack",
@@ -17,7 +18,7 @@
         "label": {
           "patient_name": "Bob Cobb",
           "medicine_name": "Testosterone gel",
-          "quantity": "1 x 88 g pump pack",
+          "quantity": 1,
           "dose": "1 application",
           "frequency": "once daily",
           "route": "transdermal",
@@ -37,6 +38,7 @@
       {
         "medicine": {
           "name": "Testosterone injection (undecanoate)",
+          "trade_name": "Nebido",
           "active_ingredient": "testosterone undecanoate",
           "form": "solution for injection",
           "presentation": "vial",
@@ -48,12 +50,12 @@
         "label": {
           "patient_name": "Bob Cobb",
           "medicine_name": "Testosterone injection",
-          "quantity": "1 x 4 mL vial",
-          "dose": "",
-          "frequency": "",
+          "quantity": 1,
+          "dose": "1 injection",
+          "frequency": "every 10-14 weeks",
           "route": "intramuscular injection",
           "directions": "For administration by healthcare professional only",
-          "duration": "",
+          "duration": "28 days supply",
           "repeat": "",
           "cautionary_labels": ["For injection use only"],
           "storage_instructions": "Store below 25°C. Protect from light.",
@@ -66,6 +68,7 @@
       {
         "medicine": {
           "name": "Estradiol tablets",
+          "trade_name": "Elleste Solo",
           "active_ingredient": "estradiol valerate",
           "form": "oral tablet",
           "presentation": "blister pack",
@@ -77,7 +80,7 @@
         "label": {
           "patient_name": "Sally Snail",
           "medicine_name": "Estradiol tablets",
-          "quantity": "84 tablets",
+          "quantity": 84,
           "dose": "1 tablet",
           "frequency": "twice daily",
           "route": "oral",
@@ -93,6 +96,7 @@
       {
         "medicine": {
           "name": "Estradiol gel",
+          "trade_name": "Estrogel",
           "active_ingredient": "estradiol hemihydrate",
           "form": "transdermal gel",
           "presentation": "pump pack",
@@ -104,7 +108,7 @@
         "label": {
           "patient_name": "Sally Snail",
           "medicine_name": "Estradiol gel",
-          "quantity": "1 pump pack",
+          "quantity": 1,
           "dose": "1 pump",
           "frequency": "once daily",
           "route": "transdermal",
@@ -120,6 +124,7 @@
       {
         "medicine": {
           "name": "Estradiol patch",
+          "trade_name": "Evorel",
           "active_ingredient": "estradiol",
           "form": "transdermal patch",
           "presentation": "patch pack",
@@ -131,7 +136,7 @@
         "label": {
           "patient_name": "Sally Snail",
           "medicine_name": "Estradiol patch",
-          "quantity": "8 patches",
+          "quantity": 8,
           "dose": "1 patch",
           "frequency": "change twice weekly",
           "route": "transdermal",
@@ -147,6 +152,7 @@
       {
         "medicine": {
           "name": "Spironolactone",
+          "trade_name": "Aldactone",
           "active_ingredient": "spironolactone",
           "form": "oral tablet",
           "presentation": "blister pack",
@@ -158,12 +164,12 @@
         "label": {
           "patient_name": "Sally Snail",
           "medicine_name": "Spironolactone",
-          "quantity": "",
-          "dose": "",
-          "frequency": "",
+          "quantity": 28,
+          "dose": "1 tablet",
+          "frequency": "once daily",
           "route": "oral",
           "directions": "Take as directed with food",
-          "duration": "",
+          "duration": "28 days supply",
           "repeat": "",
           "cautionary_labels": ["May cause dizziness"],
           "storage_instructions": "Store below 25°C",
@@ -174,6 +180,7 @@
       {
         "medicine": {
           "name": "Cyproterone acetate",
+          "trade_name": "Androcur",
           "active_ingredient": "cyproterone acetate",
           "form": "oral tablet",
           "presentation": "blister pack",
@@ -185,12 +192,12 @@
         "label": {
           "patient_name": "Sally Snail",
           "medicine_name": "Cyproterone acetate",
-          "quantity": "",
-          "dose": "",
-          "frequency": "",
+          "quantity": 28,
+          "dose": "1 tablet",
+          "frequency": "once daily",
           "route": "oral",
           "directions": "Take as directed",
-          "duration": "",
+          "duration": "28 days supply",
           "repeat": "",
           "cautionary_labels": ["May cause drowsiness"],
           "storage_instructions": "Store below 25°C",
