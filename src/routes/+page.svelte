@@ -85,7 +85,8 @@
           {selectedMedication.label.quantity}
           {selectedMedication.medicine.trade_name || selectedMedication.medicine.name} 
           {selectedMedication.medicine.concentration} 
-          {selectedMedication.medicine.concentration_unit} 
+          {selectedMedication.medicine.concentration_unit}
+          <!-- TODO: fix grammar if medication type needs an e before the s -->
           {selectedMedication.medicine.form}{#if selectedMedication.label.quantity > 1}s{/if}
         </p>
         <div class="detail-grid">
