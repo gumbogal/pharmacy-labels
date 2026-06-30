@@ -21,6 +21,27 @@
     selectedCategory = category;
     selectedMedicationIndex = 0;
   }
+
+  /**
+   * @param {{ dose?: number | string, dose_type?: string, frequency_amount?: number | string, frequency_period?: string }} label
+   */
+  function formatDoseInstruction(label) {
+    const dose = Number(label?.dose ?? 1);
+    const doseType = label?.dose_type?.trim();
+    const frequencyAmount = Number(label?.frequency_amount ?? 1);
+    const frequencyPeriod = label?.frequency_period?.trim() ?? 'day';
+
+    const doseText = dose === 1 ? 'ONE' : String(dose).toUpperCase();
+    const doseTypeText = doseType ? ` ${doseType.toUpperCase()}` : '';
+    const frequencyText =
+      frequencyAmount === 1
+        ? 'ONCE'
+        : frequencyAmount === 2
+          ? 'TWICE'
+          : String(frequencyAmount).toUpperCase();
+
+    return `${doseText}${doseTypeText} to be taken ${frequencyText} a ${frequencyPeriod.toLowerCase()}`;
+  }
 </script>
 
 <div class="page">
@@ -81,8 +102,8 @@
             <p>{selectedMedication.label.dose || 'As directed'}</p>
           </div>
           <div>
-            <strong>Frequency</strong>
-            <p>{selectedMedication.label.frequency || 'As directed'}</p>
+            <strong>Instructions</strong>
+            <p>{formatDoseInstruction(selectedMedication.label)}</p>
           </div>
         </div>
 
