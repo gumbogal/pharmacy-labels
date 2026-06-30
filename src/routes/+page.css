@@ -123,3 +123,7 @@ button.active {
 .to-uppercase {
   text-transform: uppercase;
 }
+
+.to-bold {
+  font-weight: bold;
+}

@@ -81,7 +81,7 @@
   <section class="panel preview-panel">
     {#if selectedMedication}
       <div class="preview-card">
-        <p class="to-uppercase">
+        <p class="to-uppercase to-bold">
           {selectedMedication.label.quantity}
           {selectedMedication.medicine.trade_name || selectedMedication.medicine.name} 
           {selectedMedication.medicine.concentration} 
@@ -90,7 +90,13 @@
           {selectedMedication.medicine.form}{#if selectedMedication.label.quantity > 1}s{/if}
         </p>
           <div>
-            <p>{formatDoseInstruction(selectedMedication.label)}</p>
+            <p class="to-bold">{formatDoseInstruction(selectedMedication.label)}</p>
+          </div>
+          <div>
+            <p>If you feel dizzy DO NOT drive/operate machinery</p>
+          </div>          
+          <div>
+            <p>Read the printed advice.</p>
           </div>
         <div class="detail-grid">
           <div>
