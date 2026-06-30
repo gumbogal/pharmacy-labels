@@ -127,3 +127,7 @@ button.active {
 .to-bold {
   font-weight: bold;
 }
+
+.text-right {
+  text-align: right;
+}

@@ -42,6 +42,10 @@
 
     return `${doseText}${doseTypeText} to be taken ${frequencyText} a ${frequencyPeriod.toLowerCase()}`;
   }
+
+  function random5DigitNumber() {
+    return Math.floor(10000 + Math.random() * 90000);
+  }
 </script>
 
 <div class="page">
@@ -101,20 +105,12 @@
           <div>
             <p>{selectedMedication.label.advice}</p>
           </div>
-        <div class="detail-grid">
           <div>
-            <strong>Patient</strong>
-            <p>{selectedMedication.label.patient_name}</p>
+            <p class="text-right">Container 1 of 6</p>
           </div>
           <div>
-            <strong>Route</strong>
-            <p>{selectedMedication.label.route}</p>
+            <p>{selectedMedication.label.patient_name}({random5DigitNumber()})</p>
           </div>
-          <div>
-            <strong>Dose</strong>
-            <p>{selectedMedication.label.dose || 'As directed'}</p>
-          </div>
-        </div>
       </div>
     {:else}
       <p>No medications available for this selection.</p>
