@@ -109,7 +109,7 @@
             <p class="text-right">Container 1 of 6</p>
           </div>
           <div>
-            <p>{selectedMedication.label.patient_name}({random5DigitNumber()})</p>
+            <p>{selectedMedication.label.patient_name}({random5DigitNumber()}) {new Intl.DateTimeFormat('en-GB').format(new Date(new Date().setDate(new Date().getDate() - 36)))}</p>
           </div>
       </div>
     {:else}

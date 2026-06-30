@@ -71,13 +71,21 @@ button.active {
 }
 
 .preview-card {
-  width: 100%;
-  max-width: 420px;
+  width: 70mm;
+  max-width: 70mm;
+  height: 35mm;
+  max-height: 35mm;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 1.25rem;
   background: linear-gradient(135deg, #ffffff, #f8fbff);
   text-align: center;
+  font-family: Helvetica, monospace;
+  font-size: 1rem;
+}
+
+.preview-card * {
+  margin: 0;
 }
 
 .eyebrow {
