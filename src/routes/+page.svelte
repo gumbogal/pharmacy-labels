@@ -89,6 +89,9 @@
           <!-- TODO: fix grammar if medication type needs an e before the s -->
           {selectedMedication.medicine.form}{#if selectedMedication.label.quantity > 1}s{/if}
         </p>
+          <div>
+            <p>{formatDoseInstruction(selectedMedication.label)}</p>
+          </div>
         <div class="detail-grid">
           <div>
             <strong>Patient</strong>
@@ -102,10 +105,7 @@
             <strong>Dose</strong>
             <p>{selectedMedication.label.dose || 'As directed'}</p>
           </div>
-          <div>
-            <strong>Instructions</strong>
-            <p>{formatDoseInstruction(selectedMedication.label)}</p>
-          </div>
+
         </div>
 
         <div class="label-box">
