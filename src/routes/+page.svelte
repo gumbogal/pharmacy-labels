@@ -100,19 +100,32 @@
         <div class="field-grid">
           <label class="field">
             <span>Medicine name</span>
-            <input bind:value={customMedication.medicine.name} />
+            <input bind:value={customMedication.medicine.name} placeholder="e.g., estradiol" />
           </label>
           <label class="field">
             <span>Trade name</span>
-            <input bind:value={customMedication.medicine.trade_name} />
+            <input bind:value={customMedication.medicine.trade_name} placeholder="e.g., Elleste Solo" />
           </label>
           <label class="field">
             <span>Form</span>
-            <input bind:value={customMedication.medicine.form} />
+            <select bind:value={customMedication.medicine.form}>
+              <option value="">Select a form</option>
+              <option value="tablet">tablet</option>
+              <option value="capsule">Capsule</option>
+              <option value="oral solution">Oral solution</option>
+              <option value="transdermal gel">Transdermal gel</option>
+              <option value="transdermal patch">Transdermal patch</option>
+              <option value="solution for injection">Solution for injection</option>
+              <option value="injection">Injection</option>
+              <option value="implant">Implant</option>
+              <option value="cream">Cream</option>
+              <option value="spray">Spray</option>
+              <option value="lozenge">Lozenge</option>
+            </select>
           </label>
           <label class="field">
             <span>Route</span>
-            <input bind:value={customMedication.medicine.route} />
+            <input bind:value={customMedication.medicine.route}  />
           </label>
           <label class="field">
             <span>Concentration</span>
