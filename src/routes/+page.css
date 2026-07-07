@@ -47,24 +47,36 @@ h1 {
 .page {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 1.5rem;
-  padding: 2rem;
-  min-height: 100vh;
+  gap: 1rem;
+  padding: 1rem 1.5rem 0.75rem;
+  min-height: calc(100vh - 2.5rem);
   box-sizing: border-box;
+  align-content: start;
+}
+
+.page-footer {
+  padding: 0 1.5rem 1rem;
+  text-align: center;
+}
+
+.page-footer p {
+  margin: 0;
+  color: #4a5870;
+  font-size: 0.95rem;
 }
 
 .panel {
   background: rgba(255, 248, 252, 0.95);
   border: 1px solid rgba(123, 212, 246, 0.28);
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 1rem 1.25rem;
   box-shadow: 0 12px 32px rgba(47, 59, 87, 0.12);
 }
 
 .choices {
   display: flex;
-  gap: 0.75rem;
-  margin: 1rem 0;
+  gap: 0.6rem;
+  margin: 0.75rem 0;
 }
 
 button {

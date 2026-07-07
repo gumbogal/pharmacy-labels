@@ -298,3 +298,7 @@
   </section>
 </div>
 
+<footer class="page-footer">
+  <p>Pharmacy label generator · For demonstration and educational purposes</p>
+</footer>
+
