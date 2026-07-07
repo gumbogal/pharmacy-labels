@@ -152,6 +152,7 @@ button.active {
 
 .label-details {
   padding: 0;
+  width: 100%;
 }
 
 .child-warning {
