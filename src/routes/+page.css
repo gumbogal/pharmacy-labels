@@ -225,7 +225,7 @@ button.active {
   transform: rotate(180deg);
   white-space: nowrap;
   font-size: 1.5mm;
-  color: #d9779c;
+  color: #62c02a;
 }
 
 .preview-card * {
@@ -243,7 +243,7 @@ button.active {
   display: flex;
   width: 6mm;
   height: 6mm;
-  color: #d9779c;
+  color: #62c02a;
   flex-shrink: 0;
   align-self: center;
 }
@@ -301,7 +301,7 @@ button.active {
   align-items: stretch;
   justify-self: end;
   margin-left: 1mm;
-  color: #7bd4f6;
+  color: #62c02a;
 }
 
 .dispensing-box {
@@ -310,7 +310,7 @@ button.active {
   justify-content: center;
   width: 6mm;
   height: 8mm;
-  border: 1px solid #7bd4f6;
+  border: 1px solid #62c02a;
   border-right: none;
   border-bottom: none;
   font-size: 1.5mm;
