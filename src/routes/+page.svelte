@@ -1,5 +1,6 @@
 <script>
   import dataset from '../dataset.json';
+  import mdIcon from '../assets/md-icon.svg';
   import './+page.css';
 
   let selectedCategory = $state('masculinising');
@@ -111,12 +112,7 @@
       </div>
       <div class="label-footer">
         <div class="preview-icon" aria-label="Pharmacy label icon" role="img">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
-            <path d="M8 8h8" />
-            <path d="M8 12h8" />
-            <path d="M8 16h5" />
-          </svg>
+          <img src={mdIcon} alt="" aria-hidden="true" />
         </div>
         <div class="pharmacy-details">
           <h1>Warrington Pharmacy</h1>
