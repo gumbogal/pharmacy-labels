@@ -95,7 +95,7 @@ button.active {
   justify-content: center;
   gap: 0.8mm;
   font-size: 2.5mm;
-  padding: 1.5mm;
+  padding: 1.5mm 0.5mm 1.5mm 1.5mm;
   padding-bottom: 0;
   display: flex;
   flex-direction: row;
