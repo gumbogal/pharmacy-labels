@@ -1,6 +1,14 @@
-:global(body) {
+body {
   margin: 0;
-  background: #f4f6fb;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #7bd4f6 0%,
+    #7bd4f6 45%,
+    #f4b3c2 45%,
+    #f4b3c2 100%
+  );
+  color: #2f3b57;
   font-family: system-ui, sans-serif;
 }
 
@@ -14,10 +22,11 @@
 }
 
 .panel {
-  background: white;
+  background: rgba(255, 248, 252, 0.95);
+  border: 1px solid rgba(123, 212, 246, 0.28);
   border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 32px rgba(47, 59, 87, 0.12);
 }
 
 .choices {
@@ -27,9 +36,9 @@
 }
 
 button {
-  border: 1px solid #d2d8e3;
-  background: #f8fafc;
-  color: #162033;
+  border: 1px solid #d8c4d3;
+  background: #fff8fc;
+  color: #2f3b57;
   border-radius: 999px;
   padding: 0.7rem 1rem;
   cursor: pointer;
@@ -37,9 +46,9 @@ button {
 }
 
 button.active {
-  background: #162033;
-  color: white;
-  border-color: #162033;
+  background: linear-gradient(90deg, #7bd4f6 0%, #f4b3c2 100%);
+  color: #1f2a3d;
+  border-color: #f4b3c2;
 }
 
 .medications {
@@ -60,7 +69,7 @@ button.active {
 
 .medication-card span {
   font-size: 0.9rem;
-  color: #5b6474;
+  color: #6f7891;
   text-transform: capitalize;
 }
 
@@ -79,7 +88,7 @@ button.active {
   flex-direction: column;
   gap: 0.35rem;
   font-size: 0.9rem;
-  color: #162033;
+  color: #2f3b57;
 }
 
 .field span {
@@ -101,8 +110,8 @@ button.active {
   width: 1rem;
   height: 1rem;
   border-radius: 999px;
-  background: #162033;
-  color: white;
+  background: linear-gradient(135deg, #7bd4f6, #f4b3c2);
+  color: #1f2a3d;
   font-size: 0.75rem;
   font-weight: 700;
   cursor: help;
@@ -118,11 +127,11 @@ button.active {
   width: 14rem;
   padding: 0.6rem 0.7rem;
   border-radius: 8px;
-  background: #162033;
-  color: white;
+  background: #2f3b57;
+  color: #fff7fb;
   font-size: 0.8rem;
   line-height: 1.35;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 20px rgba(47, 59, 87, 0.2);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
@@ -137,11 +146,12 @@ button.active {
 .field input,
 .field select,
 .field textarea {
-  border: 1px solid #d2d8e3;
+  border: 1px solid #d8c4d3;
   border-radius: 8px;
   padding: 0.6rem 0.7rem;
   font: inherit;
-  color: #162033;
+  color: #2f3b57;
+  background: #fffdfd;
   min-height: 2.5rem;
   height: 2.5rem;
   line-height: 1.2;
@@ -191,6 +201,8 @@ button.active {
   flex-direction: column;
   justify-content: center;
   gap: 0.8mm;
+  transform: scale(2);
+  transform-origin: center;
 }
 
 .label-body {
@@ -213,12 +225,7 @@ button.active {
   transform: rotate(180deg);
   white-space: nowrap;
   font-size: 1.5mm;
-  color: #62c02a;
-}
-
-.preview-card {
-  transform: scale(2);
-  transform-origin: center;
+  color: #d9779c;
 }
 
 .preview-card * {
@@ -236,7 +243,7 @@ button.active {
   display: flex;
   width: 6mm;
   height: 6mm;
-  color: #62c02a;
+  color: #d9779c;
   flex-shrink: 0;
   align-self: center;
 }
@@ -281,7 +288,7 @@ button.active {
   margin: 0;
   font-size: 2.5mm;
   line-height: 1;
-  color: #162033;
+  color: #2f3b57;
 }
 
 .pharmacy-details p {
@@ -294,7 +301,7 @@ button.active {
   align-items: stretch;
   justify-self: end;
   margin-left: 1mm;
-  color: #62c02a;
+  color: #7bd4f6;
 }
 
 .dispensing-box {
@@ -303,7 +310,7 @@ button.active {
   justify-content: center;
   width: 6mm;
   height: 8mm;
-  border: 1px solid #62c02a;
+  border: 1px solid #7bd4f6;
   border-right: none;
   border-bottom: none;
   font-size: 1.5mm;
@@ -313,17 +320,6 @@ button.active {
 .dispensing-box:last-child {
   border-right: none;
   border-bottom: none;
-}
-
-@media print {
-  .preview-viewport {
-    width: 70mm;
-    height: 35mm;
-  }
-
-  .preview-card {
-    transform: none;
-  }
 }
 
 .eyebrow {
@@ -379,6 +375,10 @@ button.active {
 
 .to-uppercase {
   text-transform: uppercase;
+}
+
+.quantity-value {
+  font-weight: normal;
 }
 
 .to-bold {

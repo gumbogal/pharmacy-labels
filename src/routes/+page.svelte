@@ -250,7 +250,7 @@
           <div class="label-body">
             <div class="label-details">
               <p class="to-uppercase to-bold">
-                <span style="font-weight: normal;">{selectedMedication.label.quantity}</span>
+                <span class="quantity-value">{selectedMedication.label.quantity}</span>
                 {selectedMedication.medicine.trade_name || selectedMedication.medicine.name}
                 {selectedMedication.medicine.concentration}
                 {selectedMedication.medicine.concentration_unit}
@@ -297,82 +297,3 @@
   </section>
 </div>
 
-<style>
-  :global(body) {
-    margin: 0;
-    background: #f4f6fb;
-    font-family: system-ui, sans-serif;
-  }
-
-  .page {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 1.5rem;
-    padding: 2rem;
-    min-height: 100vh;
-    box-sizing: border-box;
-  }
-
-  .panel {
-    background: white;
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  }
-
-  .choices {
-    display: flex;
-    gap: 0.75rem;
-    margin: 1rem 0;
-  }
-
-  button {
-    border: 1px solid #d2d8e3;
-    background: #f8fafc;
-    color: #162033;
-    border-radius: 999px;
-    padding: 0.7rem 1rem;
-    cursor: pointer;
-    font: inherit;
-  }
-
-  button.active {
-    background: #162033;
-    color: white;
-    border-color: #162033;
-  }
-
-  .medications {
-    display: grid;
-    gap: 0.75rem;
-    margin-top: 1rem;
-  }
-
-  .medication-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 12px;
-    padding: 0.9rem 1rem;
-    text-align: left;
-    width: 100%;
-  }
-
-  .medication-card span {
-    font-size: 0.9rem;
-    color: #5b6474;
-    text-transform: capitalize;
-  }
-
-  .preview-panel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @media (max-width: 900px) {
-    .page {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
