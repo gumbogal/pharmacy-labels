@@ -1,17 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 135deg;
+  inherits: false;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    #7bd4f6 0%,
-    #7bd4f6 45%,
-    #f4b3c2 45%,
-    #f4b3c2 100%
-  );
+  position: relative;
+  overflow-x: hidden;
+  isolation: isolate;
   color: #2f3b57;
   font-family: "Fredoka", "Trebuchet MS", sans-serif;
+  background: transparent;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--angle),
+    #7bd4f6 0deg 180deg,
+    #f4b3c2 180deg 360deg
+  );
+  animation: spin-background 8s linear infinite;
 }
 
 h1 {
@@ -67,6 +83,12 @@ button.active {
   color: #fff;
   border-color: #f4b3c2;
   font-weight: bold;
+}
+
+@keyframes spin-background {
+  to {
+    --angle: 495deg;
+  }
 }
 
 .medications {
