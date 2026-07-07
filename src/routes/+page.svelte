@@ -74,7 +74,8 @@
 
 <div class="page">
   <section class="panel">
-    <h1>Gender-affirming hormone label preview</h1>
+    <h1>UK Pharmacy Label Generator</h1>
+    <h2 class="subheading">For trans individuals</h2>
     <p>Select a pathway to see example medications and a generated preview.</p>
 
     <div class="choices" role="group" aria-label="Treatment pathway">

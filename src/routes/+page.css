@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -9,7 +11,21 @@ body {
     #f4b3c2 100%
   );
   color: #2f3b57;
-  font-family: system-ui, sans-serif;
+  font-family: "Fredoka", "Trebuchet MS", sans-serif;
+}
+
+h1 {
+  font-family: "Fredoka", "Trebuchet MS", sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.1;
+}
+
+.subheading {
+  font-family: "Fredoka", "Trebuchet MS", sans-serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-top: 0.25rem;
+  color: #4a5870;
 }
 
 .page {
@@ -43,6 +59,7 @@ button {
   padding: 0.7rem 1rem;
   cursor: pointer;
   font: inherit;
+  font-family: "Fredoka", "Trebuchet MS", sans-serif;
 }
 
 button.active {
@@ -150,6 +167,7 @@ button.active {
   border-radius: 8px;
   padding: 0.6rem 0.7rem;
   font: inherit;
+  font-family: "Fredoka", "Trebuchet MS", sans-serif;
   color: #2f3b57;
   background: #fffdfd;
   min-height: 2.5rem;
