@@ -70,6 +70,15 @@ button.active {
   justify-content: center;
 }
 
+.preview-viewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(70mm * 1.5);
+  height: calc(35mm * 1.5);
+  overflow: visible;
+}
+
 .preview-card {
   position: relative;
   width: 70mm;
@@ -111,6 +120,11 @@ button.active {
   white-space: nowrap;
   font-size: 1.5mm;
   color: #62c02a;
+}
+
+.preview-card {
+  transform: scale(2);
+  transform-origin: center;
 }
 
 .preview-card * {
@@ -207,6 +221,17 @@ button.active {
   border-bottom: none;
 }
 
+@media print {
+  .preview-viewport {
+    width: 70mm;
+    height: 35mm;
+  }
+
+  .preview-card {
+    transform: none;
+  }
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -244,6 +269,17 @@ button.active {
 @media (max-width: 900px) {
   .page {
     grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .preview-viewport {
+    width: 70mm;
+    height: 35mm;
+  }
+
+  .preview-card {
+    transform: none;
   }
 }
 

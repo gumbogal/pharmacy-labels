@@ -85,49 +85,51 @@
 
   <section class="panel preview-panel">
     {#if selectedMedication}
-      <div class="preview-card">
-      <div class="label-body">
-        <div class="label-details">
-          <p class="to-uppercase to-bold">
-            <span style="font-weight: normal;">{selectedMedication.label.quantity}</span>
-            {selectedMedication.medicine.trade_name || selectedMedication.medicine.name} 
-            {selectedMedication.medicine.concentration} 
-            {selectedMedication.medicine.concentration_unit}
-            <!-- TODO: fix grammar if medication type needs an e before the s -->
-            {selectedMedication.medicine.form}{#if selectedMedication.label.quantity > 1}s{/if}
-          </p>
-          <p class="to-bold">{formatDoseInstruction(selectedMedication.label)}</p>
-          <p>If you feel dizzy DO NOT drive/operate machinery</p>
-          <p>Read the printed advice.</p>
-          <p>{selectedMedication.label.advice}</p>
-          <br />
-          <br />
-          <p class="text-right">Container 1 of 6</p>
-          <br />
-          <p>{selectedMedication.label.patient_name}({random5DigitNumber()}) {new Intl.DateTimeFormat('en-GB').format(new Date(new Date().setDate(new Date().getDate() - 36)))}</p>
-        </div>
-        <div class="child-warning">
-          <p>Keep out of reach and sight of children</p>
-        </div>
-      </div>
-      <div class="label-footer">
-        <div class="preview-icon" aria-label="Pharmacy label icon" role="img">
-          <img src={mdIcon} alt="" aria-hidden="true" />
-        </div>
-        <div class="pharmacy-details">
-          <h1>Warrington Pharmacy</h1>
-          <p>18 Warrington Way</p>
-          <p>Tel: 0161 322 5959</p>
-        </div>
-        <div class="dispensing-boxes" aria-label="Dispensing and checked boxes">
-          <div class="dispensing-box">
-            <span>DISP</span>
+      <div class="preview-viewport">
+        <div class="preview-card">
+          <div class="label-body">
+            <div class="label-details">
+              <p class="to-uppercase to-bold">
+                <span style="font-weight: normal;">{selectedMedication.label.quantity}</span>
+                {selectedMedication.medicine.trade_name || selectedMedication.medicine.name}
+                {selectedMedication.medicine.concentration}
+                {selectedMedication.medicine.concentration_unit}
+                <!-- TODO: fix grammar if medication type needs an e before the s -->
+                {selectedMedication.medicine.form}{#if selectedMedication.label.quantity > 1}s{/if}
+              </p>
+              <p class="to-bold">{formatDoseInstruction(selectedMedication.label)}</p>
+              <p>If you feel dizzy DO NOT drive/operate machinery</p>
+              <p>Read the printed advice.</p>
+              <p>{selectedMedication.label.advice}</p>
+              <br />
+              <br />
+              <p class="text-right">Container 1 of 6</p>
+              <br />
+              <p>{selectedMedication.label.patient_name}({random5DigitNumber()}) {new Intl.DateTimeFormat('en-GB').format(new Date(new Date().setDate(new Date().getDate() - 36)))}</p>
+            </div>
+            <div class="child-warning">
+              <p>Keep out of reach and sight of children</p>
+            </div>
           </div>
-          <div class="dispensing-box">
-            <span>CHKD</span>
+          <div class="label-footer">
+            <div class="preview-icon" aria-label="Pharmacy label icon" role="img">
+              <img src={mdIcon} alt="" aria-hidden="true" />
+            </div>
+            <div class="pharmacy-details">
+              <h1>Warrington Pharmacy</h1>
+              <p>18 Warrington Way</p>
+              <p>Tel: 0161 322 5959</p>
+            </div>
+            <div class="dispensing-boxes" aria-label="Dispensing and checked boxes">
+              <div class="dispensing-box">
+                <span>DISP</span>
+              </div>
+              <div class="dispensing-box">
+                <span>CHKD</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     {:else}
       <p>No medications available for this selection.</p>
