@@ -64,8 +64,9 @@ button {
 
 button.active {
   background: linear-gradient(90deg, #7bd4f6 0%, #f4b3c2 100%);
-  color: #1f2a3d;
+  color: #fff;
   border-color: #f4b3c2;
+  font-weight: bold;
 }
 
 .medications {
