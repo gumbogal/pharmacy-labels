@@ -179,19 +179,19 @@ button.active {
   align-items: stretch;
   justify-self: end;
   margin-left: 1mm;
+  color: #62c02a;
 }
 
 .dispensing-box {
+  padding-top: 0.5mm;
   display: flex;
-  align-items: center;
   justify-content: center;
   width: 6mm;
   height: 8mm;
   border: 1px solid #62c02a;
   border-right: none;
   border-bottom: none;
-  font-size: 0.2mm;
-  font-weight: bold;
+  font-size: 1.5mm;
   box-sizing: border-box;
 }
 
