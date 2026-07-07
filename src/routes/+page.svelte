@@ -128,39 +128,101 @@
             <input bind:value={customMedication.medicine.route}  />
           </label>
           <label class="field">
-            <span>Concentration</span>
-            <input bind:value={customMedication.medicine.concentration} />
+            <span class="field-label-with-help">
+              <span>Concentration</span>
+              <span class="help-icon" aria-label="What concentration means">
+                ?
+                <span class="help-tooltip">
+                  Concentration is the strength of the medicine, such as 2 mg or 100 micrograms per 24 hours.
+                </span>
+              </span>
+            </span>
+            <input bind:value={customMedication.medicine.concentration} placeholder="e.g., 100" />
           </label>
           <label class="field">
             <span>Concentration unit</span>
-            <input bind:value={customMedication.medicine.concentration_unit} />
+            <select bind:value={customMedication.medicine.concentration_unit}>
+              <option value="">Select a unit</option>
+              <option value="mg">mg</option>
+              <option value="mcg">mcg</option>
+              <option value="ml">ml</option>
+              <option value="IU">IU</option>
+            </select>
           </label>
           <label class="field">
             <span>Patient name</span>
-            <input bind:value={customMedication.label.patient_name} />
+            <input bind:value={customMedication.label.patient_name} placeholder="e.g., Bob Cobb, Sally Snail." />
           </label>
           <label class="field">
-            <span>Quantity</span>
+            <span class="field-label-with-help">
+              <span>Quantity</span>
+              <span class="help-icon" aria-label="What quantity means">
+                ?
+                <span class="help-tooltip">
+                  Quantity means the number of individual items in the pack or supply being dispensed, such as 28 tablets or 1 pump pack.
+                </span>
+              </span>
+            </span>
             <input type="number" bind:value={customMedication.label.quantity} />
           </label>
           <label class="field">
-            <span>Dose</span>
+            <span class="field-label-with-help">
+              <span>Dose</span>
+              <span class="help-icon" aria-label="What dose means">
+                ?
+                <span class="help-tooltip">
+                  Dose is the amount of medicine taken each time, such as 1 tablet or 1 pump.
+                </span>
+              </span>
+            </span>
             <input type="number" bind:value={customMedication.label.dose} />
           </label>
           <label class="field">
-            <span>Dose type</span>
+            <span class="field-label-with-help">
+              <span>Dose type</span>
+              <span class="help-icon" aria-label="What dose type means">
+                ?
+                <span class="help-tooltip">
+                  Dose type describes how the medicine is taken, such as tablet, patch, pump, or application.
+                </span>
+              </span>
+            </span>
             <input bind:value={customMedication.label.dose_type} />
           </label>
           <label class="field">
-            <span>Frequency amount</span>
+            <span class="field-label-with-help">
+              <span>Frequency amount</span>
+              <span class="help-icon" aria-label="What frequency amount means">
+                ?
+                <span class="help-tooltip">
+                  Frequency amount is how many times the medicine is taken per period, such as 2.
+                </span>
+              </span>
+            </span>
             <input type="number" bind:value={customMedication.label.frequency_amount} />
           </label>
           <label class="field">
-            <span>Frequency period</span>
+            <span class="field-label-with-help">
+              <span>Frequency period</span>
+              <span class="help-icon" aria-label="What frequency period means">
+                ?
+                <span class="help-tooltip">
+                  Frequency period is the time frame for the dosing schedule, such as day, week, or month.
+                </span>
+              </span>
+            </span>
             <input bind:value={customMedication.label.frequency_period} />
           </label>
           <label class="field field-wide">
-            <span>Advice</span>
+            <span class="field-label-with-help">
+              <span>Advice</span>
+              <span class="help-icon" aria-label="What advice means">
+                ?
+                <span class="help-tooltip">
+                  Advice is the patient-facing instruction shown on the label, such as how and when to take the medicine.
+                </span>
+              </span>
+            </span>
             <textarea bind:value={customMedication.label.advice}></textarea>
           </label>
         </div>
@@ -201,7 +263,7 @@
               <p>{selectedMedication.label.advice}</p>
               <br />
               <br />
-              <p class="text-right">Container 1 of 6</p>
+              <p class="text-right">Container 1 of 3</p>
               <br />
               <p>{selectedMedication.label.patient_name}({random5DigitNumber()}) {new Intl.DateTimeFormat('en-GB').format(new Date(new Date().setDate(new Date().getDate() - 36)))}</p>
             </div>

@@ -86,6 +86,54 @@ button.active {
   font-weight: 600;
 }
 
+.field-label-with-help {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  position: relative;
+}
+
+.help-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: #162033;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: help;
+  flex-shrink: 0;
+}
+
+.help-tooltip {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-left: 0.35rem;
+  transform: translateY(-50%);
+  width: 14rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  background: #162033;
+  color: white;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.help-icon:hover .help-tooltip,
+.help-icon:focus-within .help-tooltip {
+  opacity: 1;
+}
+
 .field input,
 .field textarea {
   border: 1px solid #d2d8e3;
