@@ -55,14 +55,45 @@ h1 {
 }
 
 .page-footer {
-  padding: 0 1.5rem 1rem;
+  position: sticky;
+  bottom: 0;
+  padding: 0.75rem 1.5rem 1rem;
   text-align: center;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.page-footer.open {
+  background: rgba(47, 59, 87, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-row p {
+  margin: 0;
+  text-align: left;
+}
+
+.vibes-toggle {
+  margin-left: auto;
 }
 
 .page-footer p {
   margin: 0;
   color: #4a5870;
   font-size: 0.95rem;
+}
+
+.page-footer.open p,
+.page-footer.open .vibes-toggle {
+  color: #ffffff;
 }
 
 .page-footer a {
@@ -74,6 +105,43 @@ h1 {
 .page-footer a:hover,
 .page-footer a:focus-visible {
   text-decoration: underline;
+}
+
+.vibes-toggle {
+  border: none;
+  background: transparent;
+  color: #4a5870;
+  font-weight: 700;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.vibes-toggle.open {
+  color: #ffffff;
+}
+
+.vibes-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.25s ease,
+    opacity 0.2s ease,
+    margin 0.2s ease;
+  margin: 0;
+}
+
+.vibes-panel.open {
+  max-height: 2.5rem;
+  opacity: 1;
+  margin: 0 0 0.4rem;
+}
+
+.vibes-panel p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.95rem;
 }
 
 .panel {

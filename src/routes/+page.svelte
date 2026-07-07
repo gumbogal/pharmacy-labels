@@ -5,6 +5,7 @@
 
   let selectedCategory = $state('masculinising');
   let selectedMedicationIndex = $state(0);
+  let showVibes = $state(false);
   let customMedication = $state({
     medicine: {
       name: '',
@@ -298,7 +299,15 @@
   </section>
 </div>
 
-<footer class="page-footer">
-  <p>Made with ❤️ for my 🏳️‍⚧️ siblings by <a href="https://github.com/gumbogal" target="_blank" rel="noopener noreferrer">gumbogal</a></p>
+<footer class="page-footer" class:open={showVibes}>
+  <div class="vibes-panel" class:open={showVibes}>
+    <p>The website was created with vibe coding. Do I love AI? Fuck no. Am I a shit developer? Absolutely. You could say that the AI had help from me for the little bits and not the other way around. 🤷‍♀️</p>
+  </div>
+  <div class="footer-row">
+    <p>Made with ❤️ for my 🏳️‍⚧️ siblings by <a href="https://github.com/gumbogal" target="_blank" rel="noopener noreferrer">gumbogal</a></p>
+    <button class="vibes-toggle" onclick={() => (showVibes = !showVibes)}>
+      Vibes?
+    </button>
+  </div>
 </footer>
 
