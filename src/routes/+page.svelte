@@ -299,6 +299,6 @@
 </div>
 
 <footer class="page-footer">
-  <p>Pharmacy label generator · For demonstration and educational purposes</p>
+  <p>Made with ❤️ for my 🏳️‍⚧️ siblings by <a href="https://github.com/gumbogal" target="_blank" rel="noopener noreferrer">gumbogal</a></p>
 </footer>
 

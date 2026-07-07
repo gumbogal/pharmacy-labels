@@ -65,6 +65,17 @@ h1 {
   font-size: 0.95rem;
 }
 
+.page-footer a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.page-footer a:hover,
+.page-footer a:focus-visible {
+  text-decoration: underline;
+}
+
 .panel {
   background: rgba(255, 248, 252, 0.95);
   border: 1px solid rgba(123, 212, 246, 0.28);
