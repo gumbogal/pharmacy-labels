@@ -99,7 +99,10 @@
           <p>If you feel dizzy DO NOT drive/operate machinery</p>
           <p>Read the printed advice.</p>
           <p>{selectedMedication.label.advice}</p>
+          <br />
+          <br />
           <p class="text-right">Container 1 of 6</p>
+          <br />
           <p>{selectedMedication.label.patient_name}({random5DigitNumber()}) {new Intl.DateTimeFormat('en-GB').format(new Date(new Date().setDate(new Date().getDate() - 36)))}</p>
         </div>
         <div class="child-warning">
