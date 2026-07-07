@@ -92,14 +92,25 @@ button.active {
 }
 
 .label-body {
-  padding: 0 1.5mm;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   gap: 0.8mm;
   font-size: 2.5mm;
   padding: 1.5mm;
   padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.label-details {
+  padding: 0;
+}
+
+.child-warning {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-size: 1.5mm;
+  color: #62c02a;
 }
 
 .preview-card * {
@@ -138,7 +149,7 @@ button.active {
   gap: 1.8mm;
   margin-top: auto;
   width: 100%;
-  padding-top: 1mm;
+  padding: 0;
 }
 
 .pharmacy-details {
@@ -148,6 +159,7 @@ button.active {
   flex-direction: column;
   justify-content: center;
   padding-top: 0;
+  gap: 0.3mm;
 }
 
 .pharmacy-details h1 {
@@ -159,7 +171,7 @@ button.active {
 
 .pharmacy-details p {
   margin: 0;
-  font-size: 2mm;
+  font-size: 1.5mm;
 }
 
 .dispensing-boxes {
@@ -175,7 +187,7 @@ button.active {
   justify-content: center;
   width: 6mm;
   height: 8mm;
-  border: 2px solid #000;
+  border: 1px solid #62c02a;
   border-right: none;
   border-bottom: none;
   font-size: 0.2mm;

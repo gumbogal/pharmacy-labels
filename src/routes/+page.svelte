@@ -86,20 +86,25 @@
     {#if selectedMedication}
       <div class="preview-card">
       <div class="label-body">
-        <p class="to-uppercase to-bold">
-          <span style="font-weight: normal;">{selectedMedication.label.quantity}</span>
-          {selectedMedication.medicine.trade_name || selectedMedication.medicine.name} 
-          {selectedMedication.medicine.concentration} 
-          {selectedMedication.medicine.concentration_unit}
-          <!-- TODO: fix grammar if medication type needs an e before the s -->
-          {selectedMedication.medicine.form}{#if selectedMedication.label.quantity > 1}s{/if}
-        </p>
-        <p class="to-bold">{formatDoseInstruction(selectedMedication.label)}</p>
-        <p>If you feel dizzy DO NOT drive/operate machinery</p>
-        <p>Read the printed advice.</p>
-        <p>{selectedMedication.label.advice}</p>
-        <p class="text-right">Container 1 of 6</p>
-        <p>{selectedMedication.label.patient_name}({random5DigitNumber()}) {new Intl.DateTimeFormat('en-GB').format(new Date(new Date().setDate(new Date().getDate() - 36)))}</p>
+        <div class="label-details">
+          <p class="to-uppercase to-bold">
+            <span style="font-weight: normal;">{selectedMedication.label.quantity}</span>
+            {selectedMedication.medicine.trade_name || selectedMedication.medicine.name} 
+            {selectedMedication.medicine.concentration} 
+            {selectedMedication.medicine.concentration_unit}
+            <!-- TODO: fix grammar if medication type needs an e before the s -->
+            {selectedMedication.medicine.form}{#if selectedMedication.label.quantity > 1}s{/if}
+          </p>
+          <p class="to-bold">{formatDoseInstruction(selectedMedication.label)}</p>
+          <p>If you feel dizzy DO NOT drive/operate machinery</p>
+          <p>Read the printed advice.</p>
+          <p>{selectedMedication.label.advice}</p>
+          <p class="text-right">Container 1 of 6</p>
+          <p>{selectedMedication.label.patient_name}({random5DigitNumber()}) {new Intl.DateTimeFormat('en-GB').format(new Date(new Date().setDate(new Date().getDate() - 36)))}</p>
+        </div>
+        <div class="child-warning">
+          <p>Keep out of reach and sight of children</p>
+        </div>
       </div>
       <div class="label-footer">
         <div class="preview-icon" aria-label="Pharmacy label icon" role="img">
