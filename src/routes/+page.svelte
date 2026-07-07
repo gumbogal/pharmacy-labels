@@ -5,18 +5,41 @@
 
   let selectedCategory = $state('masculinising');
   let selectedMedicationIndex = $state(0);
+  let customMedication = $state({
+    medicine: {
+      name: '',
+      trade_name: '',
+      form: '',
+      route: '',
+      concentration: '',
+      concentration_unit: ''
+    },
+    label: {
+      patient_name: '',
+      quantity: 1,
+      dose: 1,
+      dose_type: '',
+      frequency_amount: 1,
+      frequency_period: 'day',
+      advice: ''
+    }
+  });
 
   let medications = $derived(
     ({ masculinising: dataset.templates.masculinising, feminising: dataset.templates.feminising })[
       selectedCategory
     ] ?? []
   );
-  let selectedMedication = $derived(
-    medications[selectedMedicationIndex] ?? medications[0] ?? null
-  );
+  let selectedMedication = $derived.by(() => {
+    if (selectedCategory === 'custom') {
+      return customMedication;
+    }
+
+    return medications[selectedMedicationIndex] ?? medications[0] ?? null;
+  });
 
   /**
-   * @param {'masculinising' | 'feminising'} category
+   * @param {'masculinising' | 'feminising' | 'custom'} category
    */
   function chooseCategory(category) {
     selectedCategory = category;
@@ -67,20 +90,82 @@
       >
         Feminising
       </button>
+      <button class:active={selectedCategory === 'custom'} onclick={() => chooseCategory('custom')}>
+        Custom
+      </button>
     </div>
 
-    <div class="medications">
-      {#each medications as medication, index}
-        <button
-          class="medication-card"
-          class:active={index === selectedMedicationIndex}
-          onclick={() => (selectedMedicationIndex = index)}
-        >
-          <strong>{medication.medicine.name}</strong>
-          <span>{medication.medicine.route}</span>
-        </button>
-      {/each}
-    </div>
+    {#if selectedCategory === 'custom'}
+      <form class="custom-form">
+        <div class="field-grid">
+          <label class="field">
+            <span>Medicine name</span>
+            <input bind:value={customMedication.medicine.name} />
+          </label>
+          <label class="field">
+            <span>Trade name</span>
+            <input bind:value={customMedication.medicine.trade_name} />
+          </label>
+          <label class="field">
+            <span>Form</span>
+            <input bind:value={customMedication.medicine.form} />
+          </label>
+          <label class="field">
+            <span>Route</span>
+            <input bind:value={customMedication.medicine.route} />
+          </label>
+          <label class="field">
+            <span>Concentration</span>
+            <input bind:value={customMedication.medicine.concentration} />
+          </label>
+          <label class="field">
+            <span>Concentration unit</span>
+            <input bind:value={customMedication.medicine.concentration_unit} />
+          </label>
+          <label class="field">
+            <span>Patient name</span>
+            <input bind:value={customMedication.label.patient_name} />
+          </label>
+          <label class="field">
+            <span>Quantity</span>
+            <input type="number" bind:value={customMedication.label.quantity} />
+          </label>
+          <label class="field">
+            <span>Dose</span>
+            <input type="number" bind:value={customMedication.label.dose} />
+          </label>
+          <label class="field">
+            <span>Dose type</span>
+            <input bind:value={customMedication.label.dose_type} />
+          </label>
+          <label class="field">
+            <span>Frequency amount</span>
+            <input type="number" bind:value={customMedication.label.frequency_amount} />
+          </label>
+          <label class="field">
+            <span>Frequency period</span>
+            <input bind:value={customMedication.label.frequency_period} />
+          </label>
+          <label class="field field-wide">
+            <span>Advice</span>
+            <textarea bind:value={customMedication.label.advice}></textarea>
+          </label>
+        </div>
+      </form>
+    {:else}
+      <div class="medications">
+        {#each medications as medication, index}
+          <button
+            class="medication-card"
+            class:active={index === selectedMedicationIndex}
+            onclick={() => (selectedMedicationIndex = index)}
+          >
+            <strong>{medication.medicine.name}</strong>
+            <span>{medication.medicine.route}</span>
+          </button>
+        {/each}
+      </div>
+    {/if}
   </section>
 
   <section class="panel preview-panel">
