@@ -305,8 +305,15 @@ button.active {
 
 .preview-panel {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+}
+
+#print-label-btn {
+  align-self: center;
+  margin-top: 3.5rem;
 }
 
 .preview-viewport {
@@ -339,6 +346,7 @@ button.active {
   gap: 0.8mm;
   transform: scale(2);
   transform-origin: center;
+  margin-top: 2rem;
 }
 
 .label-body {

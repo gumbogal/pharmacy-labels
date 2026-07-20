@@ -297,6 +297,9 @@
     {:else}
       <p>No medications available for this selection.</p>
     {/if}
+    <button id="print-label-btn" onclick={() => window.print()}>
+      Print Label
+    </button>
   </section>
 </div>
 
@@ -313,3 +316,28 @@
   </div>
 </footer>
 
+<!--
+Source - https://stackoverflow.com/a/78900028
+Posted by Cliff Njoroge
+Retrieved 2026-07-20, License - CC BY-SA 4.0
+-->
+
+<style lang='css'>
+  @media print {
+    @page {
+         size: auto;   /* auto is the initial value */
+         margin: 0;  /* this affects the margin in the printer settings */
+     }
+   :global(body) {
+    margin: 20px;
+     visibility: hidden; /* this will hide any elements in your layout elements */
+   }
+   .preview-card {
+     visibility: visible;
+     position: absolute;
+     left: 0;
+     top: 0;
+     border:0.2px solid red;
+   }
+ }
+</style>
