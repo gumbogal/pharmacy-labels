@@ -1,8 +1,13 @@
-<script>
+<script lang="ts">
   import dataset from '../dataset.json';
   import mdIcon from '../assets/md-icon.svg';
   import './+page.css';
+  import * as htmlToImage from 'html-to-image';
+  import { toPng } from 'html-to-image';
+  import download from 'downloadjs';
 
+
+  let pharmaLabel: HTMLDivElement;
   let selectedCategory = $state('masculinising');
   let selectedMedicationIndex = $state(0);
   let showVibes = $state(false);
@@ -42,7 +47,7 @@
   /**
    * @param {'masculinising' | 'feminising' | 'custom'} category
    */
-  function chooseCategory(category) {
+  function chooseCategory(category: string) {
     selectedCategory = category;
     selectedMedicationIndex = 0;
   }
@@ -50,7 +55,7 @@
   /**
    * @param {{ dose?: number | string, dose_type?: string, frequency_amount?: number | string, frequency_period?: string }} label
    */
-  function formatDoseInstruction(label) {
+  function formatDoseInstruction(label: { patient_name: string; medicine_name: string; quantity: number; dose: number; dose_type: string; frequency_amount: number; frequency_period: string; route: string; advice: string; directions: string; duration: string; repeat: string; cautionary_labels: string[]; storage_instructions: string; additional_instructions: string; prescriber: string; } | { patient_name: string; quantity: number; dose: number; dose_type: string; frequency_amount: number; frequency_period: string; advice: string; }) {
     const dose = Number(label?.dose ?? 1);
     const doseType = label?.dose_type?.trim();
     const frequencyAmount = Number(label?.frequency_amount ?? 1);
@@ -70,6 +75,11 @@
 
   function random5DigitNumber() {
     return Math.floor(10000 + Math.random() * 90000);
+  }
+
+  async function exportLabelAsPng() {
+    const dataUrl = await htmlToImage.toPng(pharmaLabel);
+    download(dataUrl, "pharma-label.png");
   }
 </script>
 
@@ -247,9 +257,9 @@
 
   <section class="panel preview-panel">
     {#if selectedMedication}
-      <div class="preview-viewport">
+      <div class="preview-viewport" bind:this={pharmaLabel}>
       <!-- TODO: Fix preview card escaping preview panel boundaries in mobile view -->
-        <div class="preview-card">
+        <div class="preview-card" id="pharmacy-label">
           <div class="label-body">
             <div class="label-details">
               <p class="to-uppercase to-bold">
@@ -297,9 +307,14 @@
     {:else}
       <p>No medications available for this selection.</p>
     {/if}
-    <button id="print-label-btn" onclick={() => window.print()}>
-      Print Label
-    </button>
+    <div>
+      <button id="print-label-btn" onclick={() => window.print()}>
+        Print Label
+      </button>
+      <button id="print-label-btn" onclick={() => exportLabelAsPng()}>
+        Export
+      </button>
+    </div>
   </section>
 </div>
 
