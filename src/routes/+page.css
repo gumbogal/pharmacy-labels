@@ -36,6 +36,10 @@ h1 {
   line-height: 1.1;
 }
 
+.pharmacy-details h1 {
+  font-family: "Trebuchet MS", sans-serif;
+}
+
 .subheading {
   font-family: "Fredoka", "Trebuchet MS", sans-serif;
   font-size: 1.5rem;

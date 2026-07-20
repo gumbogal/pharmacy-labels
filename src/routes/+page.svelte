@@ -248,6 +248,7 @@
   <section class="panel preview-panel">
     {#if selectedMedication}
       <div class="preview-viewport">
+      <!-- TODO: Fix preview card escaping preview panel boundaries in mobile view -->
         <div class="preview-card">
           <div class="label-body">
             <div class="label-details">
@@ -300,6 +301,7 @@
 </div>
 
 <footer class="page-footer" class:open={showVibes}>
+<!-- TODO: Fix footer not displaying in full in mobile view -->
   <div class="vibes-panel" class:open={showVibes}>
     <p>The website was created with vibe coding. Do I love AI? Fuck no. Am I a shit developer? Absolutely. You could say that the AI had help from me for the little bits and not the other way around. 🤷‍♀️</p>
   </div>
